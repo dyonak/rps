@@ -1,0 +1,44 @@
+body {
+    background-color: rgb(58, 58, 58);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+}
+
+@font-face {
+    font-family: "Custom";
+    src: url("Orbitron.ttf") format("truetype");
+}
+
+header {
+    font-family: 'Custom', 'Verdana', sans-serif;
+}
+
+#choices {
+    display: flex;
+    column-gap: 20px;
+}
+
+button {
+    height: 250px;
+    width: 150px;
+    background-color: lightslategray;
+    border-radius: 8px;
+    box-shadow: 5px 5px 5px grey;
+}
+
+button img {
+    width: 100px;
+    height: auto;
+}
+
+main {
+    margin: auto;
+}
+
+p {
+    font-size: 24px;
+    color: blue;
+    font-weight:900;
+}
