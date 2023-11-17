@@ -1,4 +1,3 @@
-
 let gameStatus = document.createElement('p');
 let string = document.createTextNode("Hello there.");
 gameStatus.appendChild(string);
@@ -9,9 +8,11 @@ gameStatus.innerText = "Choose wisely";
 
 let stats = document.createElement('p');
 main.appendChild(stats);
-stats.innerText = `Games: 0 Wins: 0 Ties: 0`
 
 let userChoice, computerChoice;
+let gamesCount = 0;
+let winsCount = 0;
+let tiesCount = 0;
 
 function getComputerChoice() {
     return choice = Math.floor(Math.random() * 3);
@@ -26,6 +27,10 @@ function getUserChoice(val) {
 function determineWinner(user, computer) {
     console.log(`User: ${user}\n Computer: ${computer}`);
 
+    if (user == computer) {
+        return undefined;
+    };
+
     if (user - computer >= 0){
         if (user - computer === 1) {
             return true;
@@ -39,30 +44,24 @@ function determineWinner(user, computer) {
         };
         return true;
     };
-
 };
 
 function updateStats(win) {
-    console.log('Game done.');
+    if (win) winsCount++;
+    gamesCount++;
+    if (win === undefined) tiesCount++;
+    stats.innerText = `Wins/Games: ${winsCount}/${gamesCount} Ties: ${tiesCount}`;
 };
 
 function gameController(user){
-    //Display buttons
-    
-
     //Get input
     computerChoice = getComputerChoice();
     userChoice = user;
 
-    if (userChoice == computerChoice) {
-        gameStatus.innerText = "It's a tie! Choose again.";
-    };
-
     let win = determineWinner(userChoice, computerChoice)
-    
 
     //Update score
     updateStats(win);
-    stats.innerText = `Win: ${win} You: ${userChoice} Me: ${computerChoice}`;
+    gameStatus.innerText = `${win ? 'You win!' : 'I win!'}`;
     //Hide game choice buttons and display a play again button
 };
