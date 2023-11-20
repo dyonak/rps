@@ -1,9 +1,11 @@
 body {
-    background-color: rgb(58, 58, 58);
+    background-color: #000;
+    color: chartreuse;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
     align-items: center;
     flex-flow: column;
+    font-family: 'Custom', 'Verdana', sans-serif;
 }
 
 @font-face {
@@ -21,16 +23,19 @@ header {
 }
 
 button {
-    height: 250px;
-    width: 150px;
-    background-color: lightslategray;
+    background-color:whitesmoke;
     border-radius: 8px;
-    box-shadow: 5px 5px 5px grey;
+    display:flex;
+    flex-flow: row;
+    align-items: end;
+    justify-content: center;
 }
 
 button img {
-    width: 100px;
+    width: 150px;
     height: auto;
+    margin: 20px;
+
 }
 
 main {
@@ -39,6 +44,5 @@ main {
 
 p {
     font-size: 24px;
-    color: blue;
     font-weight:900;
 }

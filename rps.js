@@ -64,4 +64,17 @@ function gameController(user){
     updateStats(win);
     gameStatus.innerText = `${win ? 'You win!' : 'I win!'}`;
     //Hide game choice buttons and display a play again button
+    if (gamesCount >= 5)
+    {
+        document.getElementById('rock').style.visibility = 'hidden';
+        document.getElementById('paper').style.visibility = 'hidden';
+        document.getElementById('scissors').style.visibility = 'hidden';
+
+        if (winsCount > (gamesCount / 2)) {
+            gameStatus.innerText = `You have defeated me! You won ${winsCount} of the ${gamesCount} games.`;
+        }
+        else {
+            gameStatus.innerText = `I am victorious! I won ${gamesCount - winsCount} of the ${gamesCount} games.`;
+        }
+    }
 };
