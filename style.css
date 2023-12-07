@@ -1,6 +1,6 @@
 body {
-    background-color: #000;
-    color: chartreuse;
+    background-color: #d6d6d6;
+    color: rgb(230, 199, 29);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
     align-items: center;
@@ -23,12 +23,17 @@ header {
 }
 
 button {
-    background-color:whitesmoke;
-    border-radius: 8px;
+    background-color:rgb(209, 206, 206);
     display:flex;
     flex-flow: row;
+    transition: all 0.08s;
     align-items: end;
     justify-content: center;
+}
+
+button:hover {
+    scale: 1.02;
+    border:rgb(230, 199, 29) solid 4px;
 }
 
 button img {

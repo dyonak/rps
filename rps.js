@@ -53,6 +53,30 @@ function updateStats(win) {
     stats.innerText = `Wins/Games: ${winsCount}/${gamesCount} Ties: ${tiesCount}`;
 };
 
+function endGame() {
+    gamesCount = 0;
+    winsCount = 0;
+    tiesCount = 0;
+    
+    stats.innerText = `Wins/Games: ${winsCount}/${gamesCount} Ties: ${tiesCount}`;
+    gameStatus.innerText += `Press 'Enter' to play again.`
+    
+    document.addEventListener('keydown', awaitReset = (e) => {
+        if (e.code === "Enter") {
+            resetGame()
+        };
+    });
+};
+
+function resetGame() {
+    document.removeEventListener('keydown', awaitReset)
+    buttons = document.querySelectorAll('button');
+    buttons.forEach(element => {
+        element.style.visibility = 'visible';
+    });
+    gameStatus.innerText = "Choose Wisely";
+}
+
 function gameController(user){
     //Get input
     computerChoice = getComputerChoice();
@@ -72,9 +96,11 @@ function gameController(user){
 
         if (winsCount > (gamesCount / 2)) {
             gameStatus.innerText = `You have defeated me! You won ${winsCount} of the ${gamesCount} games.`;
+            endGame();
         }
         else {
             gameStatus.innerText = `I am victorious! I won ${gamesCount - winsCount} of the ${gamesCount} games.`;
+            endGame();
         }
     }
 };
